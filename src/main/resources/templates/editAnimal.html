@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Animal</title>
+</head>
+<body>
+<div align="center"><h2>Изменить информацию о потерявшемся животном</h2>
+    <br>
+    <br>
+    <form style="width:300px" method="POST">
+        <div>
+            <input name="Name" th:field="*{animal.name}" placeholder="Имя">
+        </div>
+        <br>
+        <div>
+            <select name="AnimalType">
+                <option th:value="${animal.animalType.id}"
+                        th:text="${animal.animalType.name}">
+                </option>
+                <option th:each="type : ${types}"
+                        th:value="${type.id}"
+                        th:text="${type.name}">
+                </option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <button style="width:200px">Изменить</button>
+    </form>
+    <br>
+</div>
+</body>
+</html>
